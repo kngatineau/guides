@@ -2,14 +2,16 @@ module go.flipt.io/flipt/gitops-guide
 
 go 1.21.0
 
-require go.flipt.io/flipt/sdk/go v0.8.0
+require (
+	go.flipt.io/flipt/rpc/flipt v1.31.0
+	go.flipt.io/flipt/sdk/go v0.8.0
+)
 
 require (
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.18.1 // indirect
 	go.flipt.io/flipt/errors v1.19.3 // indirect
-	go.flipt.io/flipt/rpc/flipt v1.31.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.26.0 // indirect
 	golang.org/x/net v0.18.0 // indirect

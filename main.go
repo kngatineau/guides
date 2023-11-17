@@ -6,6 +6,8 @@ import (
 	"net/http"
 
 	"go.flipt.io/flipt/gitops-guide/pkg/server"
+	_ "go.flipt.io/flipt/rpc/flipt"
+	_ "go.flipt.io/flipt/rpc/flipt/evaluation"
 	sdk "go.flipt.io/flipt/sdk/go"
 	flipthttp "go.flipt.io/flipt/sdk/go/http"
 )
