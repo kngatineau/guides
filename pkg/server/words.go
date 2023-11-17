@@ -74,3 +74,7 @@ func getWords(ctx context.Context) ([]string, error) {
 func getUser(ctx context.Context) string {
 	return ctx.Value("user").(string)
 }
+
+func getOrganization(ctx context.Context) string {
+	return ctx.Value("org").(string)
+}

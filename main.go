@@ -26,6 +26,14 @@ func threadUserContext(next http.HandlerFunc) http.HandlerFunc {
 			user = "default"
 		}
 
-		next(w, r.WithContext(context.WithValue(r.Context(), "user", user)))
+		org := r.URL.Query().Get("org")
+		if org == "" {
+			org = "default"
+		}
+
+		ctx := context.WithValue(r.Context(), "user", user)
+		ctx = context.WithValue(ctx, "org", org)
+
+		next(w, r.WithContext(ctx))
 	}
 }
