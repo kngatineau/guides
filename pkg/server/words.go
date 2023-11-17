@@ -8,6 +8,8 @@ import (
 	"os"
 	"sort"
 	"strings"
+
+	sdk "go.flipt.io/flipt/sdk/go"
 )
 
 var words []string
@@ -28,7 +30,13 @@ func init() {
 	words = words[:50000]
 }
 
-type Server struct{}
+type Server struct {
+	flipt sdk.SDK
+}
+
+func NewServer(flipt sdk.SDK) *Server {
+	return &Server{flipt: flipt}
+}
 
 func (s *Server) ListWords(w http.ResponseWriter, r *http.Request) {
 	words, err := getWords(r.Context())
