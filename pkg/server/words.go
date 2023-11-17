@@ -62,3 +62,7 @@ func quicksort(w []string) {
 func getWords(ctx context.Context) ([]string, error) {
 	return words, nil
 }
+
+func getUser(ctx context.Context) string {
+	return ctx.Value("user").(string)
+}
