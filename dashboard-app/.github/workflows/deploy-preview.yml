@@ -1,0 +1,28 @@
+name: Deploy preview environment on Koyeb
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy_preview:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: "${{ github.head_ref }}"
+      cancel-in-progress: true
+    steps:
+      - name: Install and configure the Koyeb CLI
+        uses: koyeb-community/install-koyeb-cli@v2
+        with:
+          api_token: "${{ secrets.KOYEB_API_TOKEN }}"
+
+      - name: Deploy the application to Koyeb
+        uses: koyeb/action-git-deploy@v1
+        with:
+          app-name: "dashboard-app-preview-${{ github.head_ref }}"
+          service-name: ${{ github.head_ref }}
+          service-ports: "8081:http"
+          service-routes: "/:8081"
+          service-env: "FLIPT_CLIENT_REFERENCE=${{ github.head_ref }},FLIPT_ADDRESS=${{ secrets.FLIPT_ADDRESS }}"
+          docker: ghcr.io/flipt-io/dashboard-app:latest

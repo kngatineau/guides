@@ -1,0 +1,6 @@
+namespace: performance
+flags:
+  - key: showPerformanceHistory
+    name: Show Performance History Graph
+    type: BOOLEAN_FLAG_TYPE
+    enabled: true
