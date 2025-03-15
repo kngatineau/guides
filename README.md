@@ -1,16 +1,14 @@
-Flipt Guide Projects
--------------
-
-This repository contains a collection of projects which accomodate our guides in our [documentation](https://flipt.io/docs/).
-
-### Get Going with GitOps
+Flipt GitOps Guide Project
+--------------------------
 
 This is a Go project which supports our guide to [Get Going with GitOps](https://www.flipt.io/docs/guides/get-going-with-gitops) and Flipt.
 
-Source: [get-going-gitops](get-going-gitops)
+## Requirements
 
-### Evaluating with References
+- Go
 
-This is a Go/React project which supports our guide to [Evaluating with References](/guides/using-references) and Flipt, demonstrating the value of Flipt's new reference support with the Git backend.
+## Run
 
-Source: [dashboard-app](dashboard-app)
+```bash
+go run main.go
+```
